@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+ 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="ITHitWebDAVClient.js" ></script>
+</head>
+ 
+<body>
+    <script type="text/javascript">
+        function edit() {
+            ITHit.WebDAV.Client.DocManager.EditDocument("https://fabric8.sematree.com/gateway/default/webdav/1.0/User_1/5efbbe9c-2d33-4981-823b-899884434a42_20sTWIfmuqgsHDXSf6I5QA%3D%3D_100_129/testword.doc", "/", protocolInstallCallback);
+        }
+             
+        // Called if protocol handler is not installed
+        function protocolInstallCallback(message) {
+           var installerFilePath = "/Users/ssmyth/Downloads/WebDAV_AJAX_Library_2_0_1735_0/Plugins/" + ITHit.WebDAV.Client.DocManager.GetInstallFileName();
+             
+           if (confirm("This action requires a protocol installation. Select OK to download the protocol installer.")){
+               window.open(installerFilePath);
+           }
+        }
+    </script>
+    <input type="button" value="Edit Document" onclick="edit()" />
+</body>
+</html>
